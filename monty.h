@@ -38,4 +38,5 @@ typedef struct instruction_s
 } instruction_t;
 void _push(stack_t **head, unsigned int line_number);
 void _print_all(stack_t **head, unsigned int line_number);
+void _pint(stack_t **head, unsigned int line_number);
 #endif

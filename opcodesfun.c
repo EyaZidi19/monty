@@ -43,3 +43,21 @@ void _print_all(stack_t **head, unsigned int line_number)
 		tmp = tmp->next;
 	}
 }
+
+/**
+ * _pint - print first element of stack
+ * @head: pointer to head node of stack
+ * @line_number: number of the line parsed.
+ */
+
+void _pint(stack_t **head, unsigned int line_number)
+{
+	stack_t *tmp = *head;
+
+	if (*head)
+	{
+		printf("%d\n", tmp->n);
+		return;
+	}
+	print_errors(5, NULL, line_number);
+}
