@@ -61,3 +61,47 @@ void _pint(stack_t **head, unsigned int line_number)
 	}
 	print_errors(5, NULL, line_number);
 }
+/**
+ * _pop - removes top element of stack
+ * @head: pointer to head node of stack
+ * @line_number: number of the line parsed.
+ */
+
+void _pop(stack_t **head, unsigned int line_number)
+{
+	stack_t *tmp = *head;
+
+	if (*head)
+	{
+		*head = tmp->next;
+		if (tmp->next)
+			tmp->next->prev = NULL;
+		free(tmp);
+		return;
+	}
+	print_errors(6, NULL, line_number);
+}
+
+/**
+ * _swap - swaps the two top elements of stack
+ * @head: pointer to head node of stack
+ * @line_number: number of the line parsed.
+ *
+ * Return: nothing
+ */
+
+void _swap(stack_t **head, unsigned int line_number)
+{
+	stack_t *tmp = NULL;
+	int n_tmp = 0;
+
+	if (list_len(*head) < 2)
+	{
+		print_errors(7, NULL, line_number);
+		return;
+	}
+	tmp = (*head)->next;
+	n_tmp = (*head)->n;
+	(*head)->n = tmp->n;
+	tmp->n = n_tmp;
+}
